@@ -1,22 +1,21 @@
-import { React, useState } from 'react'
-import './App.css'
-import ModeloPersonalizable from './components/ModeloPersonalizable';
+// App.jsx (Tu layout base)
 
-function App() {
-  // **IMPORTANTE**: Reemplaza 'ruta/a/tu/pieza_generica.glb' con la ruta real
-  const modelPath = '/modelo.glb'; 
+import React from 'react';
+import Menu from './components/Menu'; // Usando tu componente Menu
+import Rutas from './routes/Rutas'; // Importando el componente de rutas
 
-  return (
-    <div className="App">
-      <h1 className="text-3xl font-bold p-4 text-center">
-        Tienda 3D - Pieza Genérica
-      </h1>
-      {/* Asumiendo que quieres que ocupe toda la altura de la ventana */}
-      <div style={{ height: 'calc(100vh - 64px)' }}> 
-        <ModeloPersonalizable modelPath={modelPath} />
-      </div>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className="min-h-screen bg-gray-50 flex flex-col">
+            <header className="bg-white shadow-md">
+                <Menu /> 
+            </header>
+            
+            <main className="flex-grow">
+                <Rutas />
+            </main>
+        </div>
+    );
+};
 
-export default App
+export default App;
